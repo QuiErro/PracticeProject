@@ -1,0 +1,220 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	box-sizing: border-box;
+}
+body{
+	background: url(../img/bg2.png) repeat;
+	font-size: 10px;
+}
+#main{
+	margin: 7.5rem 0;
+	width: 100%;
+	position: relative;
+}
+#main .calendar-box{
+	border: 1px solid #a6a6a6;
+	border-radius: 3px;
+	background: #FFFFFF;
+	padding: 0;
+	
+	display: flex;
+	flex-direction: column;
+}
+.calendar-box .box-head{
+	color: #595959;
+	padding: .6rem .8rem .6rem 1.5rem;
+	border-bottom: 1px solid #a6a6a6;
+	background-image: -webkit-linear-gradient(top, #fafafa, #ededed);
+	background-repeat: repeat-x;
+	border-radius: 3px 3px 0 0;
+	height: 4rem;
+}
+.box-head h3{
+	font-size: 1.4em;
+	float: left;
+	font-weight: 700;
+	margin-top: .7rem;
+}
+.box-content{
+	border-radius: 0 0 2px 2px;
+	
+	display: flex;
+	flex-direction: column;
+}
+.box-content .operation{
+	height: 4rem;
+	background: #eee;
+	box-shadow: inset 0 0 0 1px #ffffff;
+	
+	display: flex;
+}
+.operation .oper-left{
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding-left: 1rem;
+	
+	display: flex;
+}
+.operation .oper-right{
+	flex-grow: 1;
+	flex-shrink: 1;
+	padding-right: 1.5rem;
+	
+	display: flex;
+	justify-content: flex-end;
+}
+.operation .oper-center{
+	flex-grow: 2;
+	flex-shrink: 1;
+	text-align: center;
+}
+.oper-left .fn_jump{
+	color: #999;
+	border: 1px solid #ddd;
+	background: #F3F3F3;
+	width: 12rem !important;
+	height: 2.5rem;
+	line-height: 1.5rem;
+	padding: .5rem .7rem;
+	font-size: 1.2em;
+	margin-top: .7rem;
+	border-radius: 0 4px 4px 0;
+}
+.oper-left button{
+	width: 3.5rem;
+	height: 2.5rem;
+	padding: .2rem;
+	margin-top: .7rem;
+	border-color: #ccc #bbb #aaa;
+	background: #F3F3F3;
+	border-style: solid;
+	border-width: 1px;
+	font-size: 1.4em;
+}
+.fn_prev{
+	border-radius: 3px 0 0 3px;
+}
+.fn_next{
+	border-radius: 0 3px 3px 0;
+}
+.oper-right .fn_select{
+	margin-top: .3rem;
+	height: 3rem;
+}
+.oper-right .input-group-sm > .input-group-addon{
+	height: 2rem;
+	padding: 0.1rem 1rem;
+	font-size: 1.5em;
+}
+.fn_select .form-control.select_text{
+	height: 3rem;
+	font-size: 1.4em;
+}
+.oper-center .head-title{
+	font-size: 3rem;
+	line-height: 4rem;
+	margin-top: 0;
+	font-weight: bold;
+}
+.cal-content .row{
+	height: 10.5rem;
+	
+	display: flex;
+}
+.cal-content .row:first-child{
+	height: 1.8rem;
+	text-align: center;
+	font-weight: bold;
+}
+.cal-content .date-title{
+	border-width: 1px 0 0 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	flex-grow: 1;
+	width: 0px;
+	font-size: 1.5em;
+}
+.cal-content .date-box{
+	border-width: 1px 0 0 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	flex-grow: 1;
+	width: 0px;  /**解决flex不随内容自动伸展???*/
+	cursor: pointer;
+}
+.date-box span{
+	width: 100%;
+	display: block;
+}
+.date-box .date-number{
+	text-align: right;
+	margin-top: 0.5rem;
+	padding-right: 0.5rem;
+	font-size: 1.3em;
+}
+.date-box .date-note{
+	margin-top: 2rem;
+	text-align: center;
+	font-size: 1.5em;
+}
+.date-box .date-tip{
+	margin-top: 2rem;
+	text-align: center;
+	font-size: 1.3em;
+	color: #CCCCCC;
+}
+.list-group{
+	position: fixed;
+	width: 40%;
+	height: auto;
+	top: 15%;
+	left: 30%;
+	background: #FFFFFF;
+	border: 1px solid #337ab7;
+	border-radius: 4px;
+	min-height: 30rem;
+	display: none;
+	height: auto;
+}
+.list-group .list-show{
+	margin-bottom: 7rem;
+}
+.list-group .btn{
+	position: absolute;
+	bottom: 1rem;
+	width: 7rem;
+	z-index: 999;
+	font-size: 1.3em;
+	text-align: center;
+}
+.list-group .list-text{
+	position: relative;
+	font-size: 1.2em;
+}
+.list-group .list-text .btn-text{
+	width: 100%;
+	height: 2.5rem;
+	line-height: 2.5rem;
+	border: none;
+	background: transparent;
+}
+.list-group .list-text .date-delete{
+	position: absolute;
+	right: 1rem;
+	top: 28%;
+	font-weight: 400;
+}
+.list-group .add{
+	right: 14rem;
+}
+.list-group .cancel{
+	right: 3rem;
+}
+.list-group .list-head{
+	cursor: default;
+	outline: none;
+	font-size: 1.4em;
+}

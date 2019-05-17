@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+		<title>简易日历</title>
+		<link rel="stylesheet" href="css/bootstrap.css" />
+		<link rel="stylesheet" href="css/new_file.css" />
+		<script type="text/javascript" src="js/jquery-3.3.1.js" ></script>
+		<script type="text/javascript" src="js/bootstrap.js" ></script>
+		<script type="text/javascript" src="js/new_file.js"></script> 
+	</head>
+	<body>
+		<div id="main">
+			<div class="container">
+				<div class="row">
+					<div class="calendar-box col-md-10 col-md-offset-1 col-xs-*">
+						<div class="box-head">
+							<h3>Calendar</h3>
+						</div>
+						<div class="box-content">
+							<div class="operation">
+								<div class="oper-left col-md-3 col-xs-4">
+									<button type="button" class="btn btn-default fn_prev" aria-label="Left Align">
+									 	<span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span>
+									</button>
+									<button type="button" class="btn btn-default fn_next" aria-label="Left Align">
+									    <span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span>
+									</button>
+									<div class="fn_jump btn btn-default">Jump to current day</div>									
+								</div>
+								<div class="oper-center col-md-6 col-xs-4">
+									<h2 class="head-title">April 2019</h2>
+								</div>
+								<div class="oper-right col-md-3 col-xs-4">
+									<div class="input-group input-group-sm fn_select">
+									    <span class="input-group-addon glyphicon glyphicon-calendar" id="basic-addon1"></span>
+									    <input type="text" class="form-control select_text" placeholder="2019-04" aria-describedby="basic-addon1">
+									</div>
+								</div>
+							</div>
+							<div class="cal-content">
+								<div class="container-fluid">
+									<div class="row">
+										<div class="date-title"><span>Sun</span></div>
+										<div class="date-title"><span>Mon</span></div>
+										<div class="date-title"><span>Tue</span></div>
+										<div class="date-title"><span>Wed</span></div>
+										<div class="date-title"><span>Thu</span></div>
+										<div class="date-title"><span>Fri</span></div>
+										<div class="date-title"><span>Sat</span></div>
+									</div>
+									<div class="row">
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+									</div>
+									<div class="row">
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+									</div>
+									<div class="row">
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+									</div>
+									<div class="row">
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+									</div>
+									<div class="row">
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+									</div>
+									<div class="row">
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+										<div class="date-box"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="list-group list-content">
+			    <button type="button" class="list-group-item active list-head">本日行程</button>
+			    <div class="list-show"></div>
+			    <button type="button" class="btn btn-primary add">新建</button>
+  				<button type="button" class="btn btn-default cancel">返回</button>
+			</div>
+		</div>
+	</body>
+</html>

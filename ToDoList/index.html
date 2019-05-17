@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>ToDoList</title>
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+		<link rel="stylesheet" href="css/animate.css" />
+		<link rel="stylesheet" href="css/sweetalert2.css" />
+		<link rel="stylesheet" type="text/css" href="css/new_file.css"/>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.js" ></script>
+		<script type="text/javascript" src="js/sweetalert2.js" ></script>
+		<script type="text/javascript" src="js/new_file.js" ></script>
+	</head>
+	<body>
+		<div id="header">
+	        <form id="form">
+	            <label for="title">ToDoList</label>
+	            <input type="text" id="title" placeholder="添加ToDo" title="请填写此段文字" autocomplete="off"/>
+	            <input id="hiddenText" type="text" style="display:none" />
+	            <input type="button"  class="button" id="add" value="添加" />
+	            <input type="button" class="button" id="clear" value="清空" />
+	        </form>
+	   </div>
+	    <div id="container">
+	    	<h2>正在进行 <span id="todoCount">0</span></h2>	    	
+	   		<ul id="todoList" data-mcs-theme="minimal-dark" class="mCustomScrollbar" ></ul>
+	   		<h2>已经完成 <span id="doneCount">0</span></h2>	   		
+	    	<ul id="doneList" data-mcs-theme="minimal-dark" class="mCustomScrollbar" ></ul>
+	   	</div> 
+	   	<!-- <div id="mb_con">
+		        <span id="mb_tit">温馨提示</span><a id="mb_ico">x</a>
+		        <div id="mb_msg"></div>
+		        <div id="mb_btnbox">
+		            <input id="mb_btn_ok" type="button" value="确定" />
+		            <input id="mb_btn_no" type="button" value="取消" />
+		        </div>
+		</div> -->
+	</body>
+</html>
