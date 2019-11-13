@@ -14,18 +14,7 @@ $(function(){
 	
 	$("#todoList").mCustomScrollbar("scrollTo","bottom"); // 自动滚动到滚动条的最底部
 	$("#doneList").mCustomScrollbar("scrollTo","bottom");
-	/**
-	//自定义弹窗口
-	$("#mb_ico").click(function(){
-		$("#mb_con").hide();
-	});
-	$("#mb_btn_ok").click(function(){
-		$("#mb_con").hide();
-	});
-	$("#mb_btn_no").click(function(){
-		$("#mb_con").hide();
-	});
-	*/
+
 	// 自定义弹窗模板 
 	var MyBox = Swal.mixin({
 		toast: true,
@@ -40,11 +29,6 @@ $(function(){
 		$("#mb_con").removeClass('animated shake');
 		text_title = $("#title").val();
 		if(text_title === ''){
-			/**
-			$("#mb_con").addClass('animated shake');
-			$("#mb_msg").text('内容不得为空！');
-			$("#mb_con").show();	
-			*/
 			MyBox.fire({
 				type: 'error',
 				title: '添加的内容不得为空！',
@@ -57,7 +41,9 @@ $(function(){
 			msg: text_title,
 			state: 1  //表示未完成
 		});
+		
 		$("#title").val('');
+		
 		MyBox.fire({
 			type: 'success',
 			title: '添加成功',
@@ -71,14 +57,9 @@ $(function(){
 	$("#title").keypress(function(event){
 		event = event || window.event;
 		if(event.keyCode === 13){
-			$("#mb_con").removeClass('animated shake');
 			text_title = $("#title").val();
+			
 			if(text_title === ''){
-				/**
-				$("#mb_con").addClass('animated shake');
-				$("#mb_msg").text('内容不得为空！');
-				$("#mb_con").show();
-				*/
 				MyBox.fire({
 					type: 'error',
 					title: '添加的内容不得为空！',
@@ -91,12 +72,15 @@ $(function(){
 				msg: text_title,
 				state: 1  //表示未完成
 			});
+			
 			$("#title").val('');
-				MyBox.fire({
-					type: 'success',
-					title: '添加成功',
-					customClass: 'animated tada'
-				});
+			
+			MyBox.fire({
+				type: 'success',
+				title: '添加成功',
+				customClass: 'animated tada'
+			});
+			
 			$("#todoList").mCustomScrollbar("update");
 			$("#todoList").mCustomScrollbar("scrollTo","bottom");  
 		}
@@ -108,22 +92,21 @@ $(function(){
 		done_count = 0;
 		$("#todoCount").text(to_count);
 		$("#doneCount").text(done_count);
-		$("#todoList").html('');
-		$("#doneList").html('');
+		$("#todoList #mCSB_1_container").html('');
+		$("#doneList #mCSB_1_container").html('');
 		window.localStorage.clear();
 	});
 	
 	// 事件委托--checkbox
 	$("#todoList").delegate(".li_checkbox", "click", function () {
 		if($(this).get(0).checked){
-			$(this).get(0).checked = false;
-			
 			var _this = $(this);
 			findAndUpdate({
 				id: parseInt(_this.parent().attr("id")),
 				msg: _this.parent().children(".li_span").eq(0).text(),
 				state: 0
 			});
+			
 			to_count--;
 			done_count++;
 			$("#todoCount").text(to_count);
@@ -136,9 +119,7 @@ $(function(){
 		}
     });
     $("#doneList").delegate(".li_checkbox", "click", function () {
-    	if($(this).get(0).checked){
-    		$(this).get(0).checked = false;
-    		
+    	if(!$(this).get(0).checked){
     		var _this = $(this);
 			findAndUpdate({
 				id: parseInt(_this.parent().attr("id")),

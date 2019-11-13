@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" href="./css/index.css">
+	</head>
+	<body>
+		<div id="canvas-wrapper">
+			<canvas id="canvas">
+				当前浏览器不支持canvas,请更换后重新尝试
+			</canvas>
+			<div id="controller">
+				<h1>Canvas-炫彩小球</h1>
+				<a id="canvas-btn">停止运动</a>
+				<a class="color-btn" id="white-color-btn">&nbsp;</a>
+				<a class="color-btn" id="black-color-btn">&nbsp;</a>
+			</div>
+		</div>
+		
+		<script src="js/Underscore-min.js"></script>
+		<script src="js/Ball.js"></script>
+		<script>
+			//1. 获取当前画布
+			const canvas = document.getElementById("canvas");
+			const ctx = canvas.getContext("2d");
+			canvas.width = 1000;
+			canvas.height = 600;
+			
+			// 2. 设置初始值
+			let isMoving = true; // 小球是否运动
+			let themeColor = "white"; // 画布背景颜色
+
+			// 3. 实例化小球
+			let ballArr = [];  // 存放所有小球
+			let colorArr = ['red', 'green', 'blue', 'yellow', 'orange', 'purple', 'pink', 'skyblue'];  // 小球颜色
+			
+			// 4. 监听鼠标移动事件
+			canvas.addEventListener('mousemove',function(e){
+				e = e || window.event;
+				/*
+				let R = _.random(0, 255);
+                let G = _.random(0, 255);
+				let B = _.random(0, 255);
+				let color = "rgb(" + R + "," + G + "," + B + ")";
+				*/
+
+				// 如果停止运动，则不产生新的小球
+				if(isMoving){
+					let radius = _.random(30, 50);
+					// ballArr.push(new MoveBall(e.offsetX, e.offsetY, radius, color));
+					ballArr.push(new MoveBall(e.offsetX, e.offsetY, radius, colorArr[_.random(0, colorArr.length - 1)]));
+				}
+			});
+
+			// 5. 监听小球是否开启运动
+			document.getElementById('canvas-btn').addEventListener('click', function(e){
+				if(isMoving){
+                    isMoving = false;
+                    this.text = "开始运动";
+                }else{
+                    isMoving = true;
+                    this.text = "停止运动";
+                }
+                return false;
+			});
+
+			// 6. 监听画布背景颜色
+            document.getElementById('white-color-btn').addEventListener('click', function(e){
+				themeColor = "white";
+                return false;
+			});
+			
+            document.getElementById('black-color-btn').addEventListener('click', function(e){
+				themeColor = "black";
+                return false;
+			});
+			
+			// 7. 开启定时器
+			setInterval(function(){
+				// 清屏
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+				// 设置画布背景颜色
+				if(themeColor == "black"){
+					ctx.fillStyle = "black";
+					ctx.fillRect(0, 0, canvas.width, canvas.height);
+				}
+
+				for(let i = 0; i < ballArr.length; i++){
+					ctx.globalCompositeOperation = "xor";
+					// 绘制小球
+					ballArr[i].render();
+					// 如果处在运动状态，则更新小球
+					if(isMoving){
+						ballArr[i].upDate();
+					}
+				}
+			},50);
+		</script>
+	</body>
+</html>
