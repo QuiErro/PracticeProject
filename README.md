@@ -31,3 +31,11 @@
 > 炫彩小球，在画布上，随着鼠标移动，将会产生绚丽的运动小球
 >
 > Canvas + ES6的Class类知识点
+
+
+
+#### Magnifier
+
+> 仿JD的放大镜特效
+>
+> JavaScript
